@@ -1,3 +1,4 @@
+/// Base class to handle application failures.
 class ApiError {
   final String message;
   final int? statusCode;
@@ -7,7 +8,8 @@ class ApiError {
     {this.statusCode}
   );
 
-   @override
+  ///function to return the error message
+  @override
   String toString() {
     if (statusCode != null) {
       return 'Error $statusCode: $message';
@@ -16,7 +18,8 @@ class ApiError {
   }
 }
 
-ApiError handleHttpError(int statusCode, String responseBody) {
+/// Return an error specific to API failures from the status code.
+ApiError handleHttpError(int statusCode) {
   switch (statusCode) {
     case 400:
       return ApiError('Bad Request - Invalid input', statusCode: 400);

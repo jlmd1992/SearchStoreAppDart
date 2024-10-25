@@ -1,3 +1,4 @@
+/// Model for representing a product from Fake Store API.
 class Product {
   final int id;
   final String title;
@@ -15,6 +16,7 @@ class Product {
     required this.category,
   });
 
+  /// Creates an instance of [Product] from a JSON map.
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
       id: json['id'],

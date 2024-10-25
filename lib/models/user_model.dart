@@ -1,6 +1,7 @@
 import 'address_model.dart';
 import 'name_model.dart';
 
+/// Model for representing a user from Fake Store API.
 class User {
   final int id;
   final String email;
@@ -20,6 +21,7 @@ class User {
     required this.phone,
   });
 
+  /// Creates an instance of [User] from a JSON map.
   factory User.fromJson(Map<String, dynamic> json) => User(
     id: json["id"],
     email: json["email"],
@@ -29,14 +31,4 @@ class User {
     address: Address.fromJson(json["address"]),
     phone: json["phone"],
   );
-
-  Map<String, dynamic> toJson() => {
-    "id": id,
-    "email": email,
-    "username": username,
-    "password": password,
-    "name": name.toJson(),
-    "address": address.toJson(),
-    "phone": phone,
-  };
 }

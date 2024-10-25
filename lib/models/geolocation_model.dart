@@ -1,3 +1,4 @@
+/// Model for representing a geolocation from Address model.
 class Geolocation {
   final String lat;
   final String long;
@@ -7,13 +8,9 @@ class Geolocation {
     required this.long,
   });
 
+  /// Creates an instance of [Geolocation] from a JSON map.
   factory Geolocation.fromJson(Map<String, dynamic> json) => Geolocation(
     lat: json["lat"],
     long: json["long"],
   );
-
-  Map<String, dynamic> toJson() => {
-    "lat": lat,
-    "long": long,
-  };
 }

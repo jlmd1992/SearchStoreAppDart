@@ -1,5 +1,6 @@
 import 'geolocation_model.dart';
 
+/// Model for representing a address from User model.
 class Address {
   final String city;
   final String street;
@@ -15,6 +16,7 @@ class Address {
     required this.geolocation,
   });
 
+  /// Creates an instance of [Address] from a JSON map.
   factory Address.fromJson(Map<String, dynamic> json) => Address(
     city: json["city"],
     street: json["street"],
@@ -22,12 +24,4 @@ class Address {
     zipcode: json["zipcode"],
     geolocation: Geolocation.fromJson(json["geolocation"]),
   );
-
-  Map<String, dynamic> toJson() => {
-    "city": city,
-    "street": street,
-    "number": number,
-    "zipcode": zipcode,
-    "geolocation": geolocation.toJson(),
-  };
 }
